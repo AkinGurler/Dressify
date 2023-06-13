@@ -48,7 +48,7 @@ const AddDress = () => {
 
 
   const optionsForClothes = [
-    { label: 'Pantalon', value: 'PANT' },
+    { label: 'Pantolon', value: 'PANT' },
     { label: 'Elbise', value: 'DRESS' },
     { label: 'Şapka', value: 'CAPS' },
     { label: 'El Çantası', value: 'HANDBAG' },
@@ -91,7 +91,6 @@ const AddDress = () => {
     );
     if (granted === PermissionsAndroid.RESULTS.GRANTED) {
       const result = await launchCamera(options);
-      console.log("foto uri", result)
       setCameraPhoto(result.assets[0].uri);
     }
   };

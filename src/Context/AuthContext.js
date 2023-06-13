@@ -46,7 +46,7 @@ export const AuthProvider = ({ children }) => {
                 // Axios dışında bir hata
                 console.log("Axios dışında bir hata:", error.message);
             }
-            Alert.alert("Giriş Hatası", error.message);
+            Alert.alert("Giriş Hatası", "Hatalı Giriş");
             setIsLoading(false);
         }
 

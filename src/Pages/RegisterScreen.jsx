@@ -8,7 +8,7 @@ import { AuthContext } from '../Context/AuthContext';
 
 const validationSchema = yup.object().shape({
     firstname: yup.string().required("İsimsiz Kullanıcı Olmaz"),
-    lastname:yup.string().required("Soyisimsiz Kullanıcı Olmaz"),
+    lastname: yup.string().required("Soyisimsiz Kullanıcı Olmaz"),
     email: yup.string().required("Sene 2023 Bir Mail Adresin olmalı"),
     password: yup.string().required("Diğer Hesaplarından farklı ve Aklında tutabileceğin bir şifre koyman lazım biliyorum zor"),
 });
@@ -16,12 +16,12 @@ const validationSchema = yup.object().shape({
 
 
 const RegisterScreen = () => {
-    const { register,loading } = useContext(AuthContext)
+    const { register, loading } = useContext(AuthContext)
 
     return (
         <View style={styles.container}>
             <Image source={require('../../assets/logo.png')} style={styles.logo} />
-            
+
             <Formik
                 initialValues={{ firstname: '', lastname: "", email: '', password: '' }}
                 validationSchema={validationSchema}
@@ -30,6 +30,7 @@ const RegisterScreen = () => {
                 {({ handleChange, handleBlur, handleSubmit, values, errors, touched }) => (
                     <>
                         <CustomInput
+                            iconName="account"
                             placeholder="First Name"
                             onChangeText={handleChange('firstname')}
                             onBlur={handleBlur('firstname')}
@@ -37,15 +38,16 @@ const RegisterScreen = () => {
                             errorMessage={touched.firstname && errors.firstname}
                         />
                         <CustomInput
+                            iconName="account"
                             placeholder="Last Name"
                             onChangeText={handleChange('lastname')}
                             onBlur={handleBlur('lastname')}
                             value={values.lastname}
                             errorMessage={touched.lastname && errors.lastname}
-
                         />
 
                         <CustomInput
+                            iconName="email"
                             placeholder="Email"
                             onChangeText={handleChange('email')}
                             onBlur={handleBlur('email')}
@@ -56,6 +58,7 @@ const RegisterScreen = () => {
 
                         <CustomInput
                             placeholder="Password"
+                            iconName="lock"
                             secureTextEntry
                             onChangeText={handleChange('password')}
                             onBlur={handleBlur('password')}
@@ -64,12 +67,12 @@ const RegisterScreen = () => {
                         />
 
                         <CustomButton
-                            
+
                             title='Kayıt Ol'
                             onPress={handleSubmit}
                             iconName="login"
                         />
-                        
+
 
                     </>
                 )}
